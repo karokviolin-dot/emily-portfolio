@@ -58,8 +58,7 @@ const priorityStyle = {
   low: { dot: "bg-emerald-500", text: "text-emerald-700", bg: "bg-emerald-50", label: "Low" },
 };
 
-function priorityScore(task: any) {  const base = task.priority === "high" ? 3 : task.priority === "medium" ? 2 : 1;
-  const soon = task.due <= 2 ? 1 : 0;
+function priorityScore(task: { priority?: string; due?: number }) {  const soon = task.due <= 2 ? 1 : 0;
   return base + soon;
 }
 
