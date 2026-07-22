@@ -1,3 +1,13 @@
+import type { LucideIcon } from "lucide-react";
+
+interface Suggestion {
+  id: string;
+  icon: LucideIcon;
+  tone: "rose" | "amber" | "slate";
+  text: string;
+  action: string;
+  onAction: () => void;
+}
 "use client";
 import React, { useState, useMemo } from "react";
 import { Star, Clock, CheckCircle2, Circle, Mail, RefreshCw, BellRing, Settings2, X, StickyNote, LayoutDashboard, KanbanSquare, CalendarDays, Inbox as InboxIcon, Phone, Zap, Sparkles, Flag } from "lucide-react";const initialTasks = [
@@ -79,10 +89,9 @@ export default function ExecutiveOpsDashboard() {
     callReminders: true,
     staleFollowup: false,
   });
-  const [dismissed, setDismissed] = useState([]);
+const [dismissed, setDismissed] = useState<string[]>([]);
   const [emailFilter, setEmailFilter] = useState("all");
-  const [dragTaskId, setDragTaskId] = useState(null);
-
+const [dragTaskId, setDragTaskId] = useState<string | null>(null);
   // ---- derived state ------------------------------------------------------
 
   const openTasks = tasks.filter((t) => t.status !== "done").length;
@@ -91,8 +100,7 @@ export default function ExecutiveOpsDashboard() {
   const callsThisWeek = calls.length;
 
   const suggestions = useMemo(() => {
-    const list = [];
-
+const list: Suggestion[] = [];
     if (rules.vipFlag) {
       const vipUnreplied = emails.filter((e) => e.vip && e.status === "needs-reply");
       vipUnreplied.forEach((e) =>
