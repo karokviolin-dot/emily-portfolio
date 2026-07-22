@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-
+import ExecutiveDashboard from '@/components/ExecutiveDashboard';
 import { Navbar } from "@/components/sections/navbar";
 import { Hero } from "@/components/sections/hero";
 import { TrustBar } from "@/components/sections/trust-bar";
@@ -23,15 +23,16 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <TrustBar />
-        <Services />
-        <Benefits />
-        <Process />
-        <WhyWorkWithMe />
-        <Faq />
-        <FinalCta />
-      </main>
+  <Hero />
+  <TrustBar />
+  <Services />
+  <ExecutiveDashboard />
+  <Benefits />
+  <Process />
+  <WhyWorkWithMe />
+  <Faq />
+  <FinalCta />
+</main>
       <Footer />
     </>
   );
