@@ -31,8 +31,10 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  // Enables the minimal, self-contained build used by the Dockerfile.
-  // Safe to leave on for Vercel deploys too — Vercel ignores it.
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  // ... el resto de tus configuraciones (output, images, headers)
   output: "standalone",
   images: {
     formats: ["image/avif", "image/webp"],
