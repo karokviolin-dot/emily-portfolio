@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 39% 8%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 39% 8%;
+
+  --primary: 222 39% 8%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 210 20% 96%;
+  --secondary-foreground: 222 39% 8%;
+
+  --muted: 210 20% 96%;
+  --muted-foreground: 215 16% 44%;
+
+  --accent: 39 48% 55%;
+  --accent-foreground: 222 39% 8%;
+
+  --border: 214 20% 90%;
+  --input: 214 20% 90%;
+  --ring: 39 48% 55%;
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: 222 47% 6%;
+  --foreground: 210 20% 96%;
+
+  --card: 222 39% 9%;
+  --card-foreground: 210 20% 96%;
+
+  --primary: 210 20% 96%;
+  --primary-foreground: 222 39% 8%;
+
+  --secondary: 222 30% 14%;
+  --secondary-foreground: 210 20% 96%;
+
+  --muted: 222 30% 14%;
+  --muted-foreground: 215 16% 62%;
+
+  --accent: 39 55% 62%;
+  --accent-foreground: 222 39% 8%;
+
+  --border: 222 25% 18%;
+  --input: 222 25% 18%;
+  --ring: 39 55% 62%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      "cv02",
+      "cv03",
+      "cv04",
+      "cv11";
+  }
+
+  ::selection {
+    @apply bg-accent-300/40 text-foreground;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-400 ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-narrow {
+    @apply mx-auto max-w-3xl px-6;
+  }
+
+  .section-padding {
+    @apply px-6 py-24 sm:py-28 lg:py-32;
+  }
+
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
