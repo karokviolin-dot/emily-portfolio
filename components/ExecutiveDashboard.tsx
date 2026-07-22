@@ -1,3 +1,4 @@
+"use client";
 import type { LucideIcon } from "lucide-react";
 
 interface Suggestion {
@@ -8,7 +9,6 @@ interface Suggestion {
   action: string;
   onAction: () => void;
 }
-"use client";
 import React, { useState, useMemo } from "react";
 import { Star, Clock, CheckCircle2, Circle, Mail, RefreshCw, BellRing, Settings2, X, StickyNote, LayoutDashboard, KanbanSquare, CalendarDays, Inbox as InboxIcon, Phone, Zap, Sparkles, Flag } from "lucide-react";const initialTasks = [
   { id: "t1", title: "Prepare Board Meeting Agenda", status: "in-progress", priority: "high", owner: "AR", due: 1, category: "Executive Support" },
