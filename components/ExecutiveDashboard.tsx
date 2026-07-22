@@ -63,7 +63,6 @@ function priorityScore(task: { priority?: string; due?: number }) {
   const base = task.priority === "high" ? 3 : task.priority === "medium" ? 2 : 1;
   const soon = dueTime <= 2 ? 1 : 0;
   return base + soon;
-}  return base + soon;
 }
 
 // ---------------------------------------------------------------------------
